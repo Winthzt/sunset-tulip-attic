@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>T yêu em</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f4efe6;
+        font-family: "Playfair Display", serif;
+        color: #3e2f2f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/BG.jpg?v=1748740553678');
+        background-size: cover;
+        background-position: center;
+        text-shadow: #cacaca 0.5px 0.5px;
+      }
+
+      .container {
+        background: rgba(255, 248, 240, 0.95);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        text-align: center;
+        animation: fadeIn 1.5s ease;
+      }
+
+      .card {
+        display: none;
+      }
+
+      h1 {
+        font-family: "Great Vibes", cursive;
+        font-size: 3em;
+        color: #7b4f39;
+      }
+
+      .message {
+        margin-top: 20px;
+        font-size: 1.1em;
+      }
+
+      .grid-photos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .flip-card {
+        background-color: transparent;
+        perspective: 1000px;
+      }
+
+      .flip-inner {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.8s;
+      }
+
+      .flip-card:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .flip-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .flip-back {
+        background: #fff8f0;
+        color: #5e4b4b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transform: rotateY(180deg);
+        font-style: italic;
+      }
+
+      input[type="password"] {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #7b4f39;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        margin-top: 10px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Màn hình nhập mật khẩu -->
+    <div class="container" id="login">
+      <h1>Nhập mật khẩu nè</h1>
+      <p>Xing Đẹp vui lòng nhập mật khẩu để mở tình yêu của T nhá!</p>
+      <input type="password" id="password" placeholder="Mật khẩu" />
+      <br />
+      <button onclick="checkPassword()">Mở</button>
+      <div class="error" id="error"></div>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="container card" id="card">
+      <h1>Chào Xing Đẹp nhá!</h1>
+      <div class="message">
+        <!-- ✍️ Bạn chèn lời chúc ở đây -->
+        <h4>"Ngày hôm nay của em thế nào? - Có phải vui lắm không?"</h4>
+        <h4>
+          "Nếu như mỗi ngày đều được ngắm nhìn nụ cười của em, làm cho em cười
+          thì hay quá."
+        </h4>
+        <h4>"Ngày hôm nay cũng vậy á."</h4>
+        <p style="text-align: justify">
+          Bé ơi! Mong em cũng yêu thương cảm xúc của em như là T thương em vậy.
+          Mong em cứ tiếp tục vui vẻ thoải mái mỗi ngày, tiếp tục vô tư, còn
+          muộn phiền T muốn tình nguyện gánh vác cùng em. Mong rằng thế giới
+          luôn nhẹ nhàng với em, nếu không thì T sẽ là người nhẹ nhàng với em,
+          trân trọng em. Mong em nhớ rằng luôn luôn có T ở cạnh bên dù trong
+          hoàn cảnh nào. Mong em hạnh phúc, mong em vui vì những điều nhỏ nhoi
+          mà T làm cho em."
+        </p>
+        <p style="text-align: justify">
+          Vì vậy mong em nhớ là vẫn còn rất nhiều người thương em, vì em, chờ
+          đợi em nên là em đừng vì lời nói của những người không trân trọng em
+          mà tổn thương chính mình, em thật sự tử tế đến đau lòng.
+        </p>
+        <p style="text-align: justify">
+          Chuyện tương lai, thời gian sẽ thay mình quyết định. Cho dù là yêu hay
+          không thì em vẫn luôn rất đặc biệt, em đã rất quan trọng kể cả khi T
+          chưa có tình cảm với em
+        </p>
+        <h4>"Mong em hiểu tình cảm này là thật lòng..."</h4>
+        <p style="text-align: justify">
+          Cảm ơn em! Cảm ơn em đã xuất hiện, cảm ơn em vì cả điều nhỏ nhất mà em
+          làm cho T, cảm ơn vì đã dịu dàng với T. Mỗi ngày qua đi T đều muốn
+          thương em nhiều nhiều hơn nữa. T cam tâm tình nguyện chờ đợi em, chờ
+          đợi "đôi mình".
+        </p>
+        <h4>"Hy vọng đúng như em nói, nếu có duyên mình sẽ thành đôi,..."</h4>
+        <h4>"Nhưng mà cũng hy vọng đó là nợ, để em ở lại đây lâu hơn...."</h4>
+        <h4>"Chúc em có tất cả những thứ tốt đẹp trên đời"</h4>
+        <h4>"Còn chúc T sau này có được điều tốt nhất trên đời là EM!"</h4>
+        <h4>
+          "Chúc em vì những điều này hạnh phúc hết ngày hôm nay,... vì ngày mai
+          T sẽ tiếp tục làm điều đó, cả sau này!"
+        </h4>
+        <h4>"T thật sự rất thương em..."</h4>
+      </div>
+
+      <!-- Lưới ảnh lật -->
+      <h1>Cảm ơn phép màu đã mang em đến!</h1>
+      <h6>
+        Click vào từng ảnh nhaaa!
+      </h6>
+      <div class="grid-photos">
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img
+                src='https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/z6659630949051_e495e10b324c0fa0ba8573fe0f32fdf3.jpg?v=1748740567219'
+                alt="Ảnh 1"
+              />
+            </div>
+            <div class="flip-back">
+              <p>
+                🌸 Em là món quà đặc biệt mà T chẳng biết mình may mắn đến mức
+                nào để nhận được.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img
+                src='https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/z6659630951015_c70fe60211d393ea98152e46ecf1bb09.jpg?v=1748740571675'
+                alt="Ảnh 2"
+              />
+            </div>
+            <div class="flip-back">
+              <p>🌸 Em chỉ cần là em thôi, luôn tươi vui như vậy.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img
+                src='https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/z6659630954608_08e2df9b8b8cd00f01df980923c93537.jpg?v=1748740575110'
+                alt="Ảnh 3"
+              />
+            </div>
+            <div class="flip-back">
+              <p>🌸 T...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img
+                src='https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/z6659630958307_a197764d5662de5209762e5194f9abb7.jpg?v=1748740578355'
+                alt="Ảnh 4"
+              />
+            </div>
+            <div class="flip-back">
+              <p>🌸 ...thương...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img
+                src='https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/z6659630960291_0c7a6255d598dfaae9c4e021be36ecaa.jpg?v=1748740581248'
+                alt="Ảnh 5"
+              />
+            </div>
+            <div class="flip-back">
+              <p>🌸 ...em.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Âm thanh -->
+    <audio id="bgMusic" loop>
+      <source
+        src="https://cdn.glitch.global/a50a8c56-7c4e-443f-bf72-04e59b7b493c/utomp3.com%20-%20Ph%C3%A9p%20M%C3%A0u%20%C4%90%C3%A0n%20C%C3%A1%20G%E1%BB%97%20OST%20%20Mounter%20x%20MAYDAYs%20Minh%20T%E1%BB%91c%20%20Official%20MV.mp3?v=1748740565566"
+        type="audio/mpeg"
+      />
+      Trình duyệt của bạn không hỗ trợ âm thanh.
+    </audio>
+
+    <script>
+      function checkPassword() {
+        const correct = "11072024";
+        const input = document.getElementById("password").value;
+        const error = document.getElementById("error");
+        if (input === correct) {
+          document.getElementById("login").style.display = "none";
+          document.getElementById("card").style.display = "block";
+          document.getElementById("bgMusic").play();
+        } else {
+          error.textContent = "Sai mật khẩu, vui lòng thử lại.";
+        }
+      }
+    </script>
+  </body>
+</html>
